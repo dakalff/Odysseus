@@ -1,6 +1,9 @@
 Odysseus
 
 
+Warnings Download install :    https://slproweb.com/products/Win32OpenSSL.html
+
+
 WARNING: do not do it, unless you have read and understood these instructions.
 If *anything* goes wrong during the restore process, you will have to restore
 to the latest, most likely unjailbreakable firmware.  Basically, you are on
