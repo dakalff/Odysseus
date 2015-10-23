@@ -1,9 +1,12 @@
 Odysseus
 
+
 WARNING: do not do it, unless you have read and understood these instructions.
 If *anything* goes wrong during the restore process, you will have to restore
 to the latest, most likely unjailbreakable firmware.  Basically, you are on
 your own.  I will not be held responsible for anything YOU do.
+
+WARNING 2 : If sshtool failed, build it yourself, if you don't know how to, ask Google
 
 This works only on certain jailbroken 32bit devices.  By that, I mean devices
 I have keys for.  Also, this will *not* change your baseband.  If you go too
@@ -78,6 +81,7 @@ have to downgrade iTunes).
 
 Credits:
 @Dev__Jam to add support for Windows
+@matteyeux for help & test
 @planetbeing, dborca for the awesome xpwn
 @winocm for ios-kexec-utils
 @westbaer, p0sixninja, iH8sn0w, GreySyntax for irecovery
