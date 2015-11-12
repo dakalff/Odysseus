@@ -1,0 +1,31 @@
+WARNING: If your device is not working after this i am not responsible for anything
+NOTE: You need SHSH Blobs for the Version you want to downgrade to, SHSH blobs from an another IDevice will not work ! You also need an jailbreak for OpenSSH and Core Utilities This downgrade works on all A4/A5/A6 devices, If you need an bundle you can find those on the internet or ask a developer on twitter
+Backup Through iTunes first
+Requirements: PC: 32 or 64 bit, iPhone/iPad/iPod( No Keys for the iPod Touch 5 yet, that means no downgrade for now), SHSH Blobs, Internet acces
+First of this tool is not made by me, it was made by elrhk/@Dev__Jam on twitter
+You can download the tool here: https://github.com/elrhk/Odysseus
+Install Cygwin, in the Cygwin installer you will come to the point where you have to list of packages to choose from. Search in the Searchbox for the following things -OpenSSH (install openssl first from here: https://www.openssl.org/) -unzip -awk if you dont find it install gawk from here http://gnuwin32.sourceforge.net/packages/gawk.htm
+If cygwin is installed place your saved SHSH blob into the shsh insdie the windows32 or windows64 folder (depends on your system)
+Open Cygwin and navigate to the directory to where the odysseus folder is e.G cd /cygdrive/c/Odysseus-Master/ next navigate to the windows32 or windows64 folder by cd /windows32-64
+Place the iPSW that you want to restore to inside the windows32/windows64 folder (reaname it to an easy name like: desired.ipsw or something like that, download your iPSW file from http://ipsw.me/ )
+Next you need grab your baseband you do that by entering ./sshtool -s baseband.tar -p 22 YOUR_DEVICE_IP You can find your idevice ip on your iphone if you open the WiFi settings and click on the little arrow next to your wifi name
+Now you will create the custom.ipsw file by entering ./ipsw desired.ipsw custom.ipsw -memory baseband.tar
+Use the -memory parameter only if your PC has more than 4GB of ram, if the IPSW creation fails try to increase it by adding -S 20 or 50 parameter after the -memory parameter
+If you are building an IPSW for iOS 6.1.3/6.1.4 on an iPhone 5 use this command: ./ipsw desired.ipsw custom.ipsw -memory baseband.tar p0sixspwn.tar ssh_small.tar cydia.tar This will add an Jailbreak to the custom IPSW so you can hacktivate if you got an Baseband mismatch. You can download the cydia.tar from here:https://www.dropbox.com/s/4o3ljqzlzigmomy/cydia.tar?dl=0
+Next you need to extract the pwnediBSS from the custom firmware by using: ./xpwntool unzip -j custom.ipsw 'Firmware/dfu/iBSS' | awk '/inflating/{print $2}' pwnediBSS*
+If you get an any error here that means you don't have gawk installed
+Now kickstart the restore by entering kDFU mode by entering ./sshtool -k ../kloader -b pwnediBSS -p 22 YOUR_DEVICE_IP
+If your device won't enter kDFU mode or the PC does not detect it reconnect the device until it is seen as an DFU device
+After that is done start the restore by: ./idevicerestore -d -w custom.ipsw
+Hacktivating if you got an Baseband mismatch
+If you only got an Searching... in your Statusbar you have 3 options:
+NOTE: This only works on iOS 6.1.3-6.1.4 firmwares for now
+Wait for an fix by an Developer ( this means it could take a looooooong time)
+Hacktivate
+Restore your iDevice to iOS 9.1
+You can hacktivate by finding out your iP Adress in the setup screen then SSH into the iDevice via iFunbox or WinSCP if you SSHed in your Phone run this command:
+cd /Applications; mv Setup.app Setup.app.BAK; killall Setup; killall backboardd
+Alternatively you can rename the setup.app via WinSCP/Putty or Cyberduck by going into /Applications/setup.app and rename it to setup.app.bak
+After that restart your iDevice and you are booted into the Homecreen
+Thanks for reading Sorry for my english ask me any questions in the comments :) If you have something to tell me DM me on twitter 
+       Thanks   @MirkosKanal2
